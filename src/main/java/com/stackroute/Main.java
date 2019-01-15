@@ -25,15 +25,15 @@ public class Main {
 //        Actor actor=m1.getActor();
        // System.out.println(actor);
 
+
+//            Movie movie1=(Movie)applicationContext.getBean("movieA");
+//            Actor actor1=movie1.getActor();
+//            System.out.println(actor1);
 //
-        Movie movie1=(Movie)applicationContext.getBean("movieA");
-        Actor actor1=movie1.getActor();
-        System.out.println(actor1);
-
-
-        Movie movie2=(Movie)applicationContext.getBean("movieB");
-        Actor actor2=movie2.getActor();
-        System.out.println(actor2);
+//
+//        Movie movie2=(Movie)applicationContext.getBean("movieB");
+//        Actor actor2=movie2.getActor();
+//        System.out.println(actor2);
 
 
 
