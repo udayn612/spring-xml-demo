@@ -53,7 +53,7 @@
         <!--<property name="actor" ref="actor2"></property>-->
     </bean>
 
-
+    <bean id="lifeCycleDemoBean" class="com.stackroute.domain.BeanLifecycleDemoBean" init-method="customInit" destroy-method="customDestroy"></bean>
 
 
 </beans>
