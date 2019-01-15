@@ -34,8 +34,8 @@ public class Main {
         System.out.println(m2.getActor().getGender());
 
         ApplicationContext context=new ClassPathXmlApplicationContext("beans.xml");
-        Movie helloWorld3=context.getBean(Movie.class);
-        System.out.println(helloWorld3.getActor().getAge());
+        Movie m3=context.getBean(Movie.class);
+        System.out.println(m3.getActor().getAge());
 
 
 
