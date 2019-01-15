@@ -9,6 +9,7 @@ import org.springframework.beans.factory.support.DefaultListableBeanFactory;
 import org.springframework.beans.factory.xml.XmlBeanDefinitionReader;
 import org.springframework.beans.factory.xml.XmlBeanFactory;
 import org.springframework.context.ApplicationContext;
+import org.springframework.context.ApplicationContextAware;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.core.io.ClassPathResource;
 
@@ -17,25 +18,28 @@ public class Main {
 
     public static void main(String[] args) {
 
-        Movie movie=new Movie();
 
 
+        ApplicationContext applicationContext=new ClassPathXmlApplicationContext("beans.xml");
+        Movie m1=(Movie)applicationContext.getBean("movie1");
+        Actor actor=m1.getActor();
+       // System.out.println(actor);
 
 
+        Movie m2=(Movie)applicationContext.getBean("movie1");
+        Actor actor2=m2.getActor();
+        //System.out.println(actor2);
 
-        BeanFactory beanFactory=new XmlBeanFactory(new ClassPathResource("beans.xml"));
-        Movie m1=(Movie) beanFactory.getBean("movie");
-        System.out.println(m1);
+        Movie movieB=(Movie)applicationContext.getBean("movieB");
+        Actor actor3=movieB.getActor();
+        System.out.println(actor3);
 
-        BeanDefinitionRegistry beanDefinitionRegistry=new DefaultListableBeanFactory();
-        BeanDefinitionReader beanDefinitionReader=new XmlBeanDefinitionReader(beanDefinitionRegistry);
-        beanDefinitionReader.loadBeanDefinitions(new ClassPathResource("beans.xml"));
-        Movie m2=((DefaultListableBeanFactory) beanDefinitionRegistry).getBean(Movie.class);
-        System.out.println(m2.getActor().getGender());
+        Movie movie2=(Movie)applicationContext.getBean("movieA");
+        Actor actor4=movie2.getActor();
+        System.out.println(actor4);
 
-        ApplicationContext context=new ClassPathXmlApplicationContext("beans.xml");
-        Movie m3=context.getBean(Movie.class);
-        System.out.println(m3.getActor().getAge());
+
+        System.out.println(m1==m2);
 
 
 

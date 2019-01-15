@@ -4,7 +4,7 @@ import org.springframework.beans.BeansException;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.ApplicationContextAware;
 
-public class Movie
+public class Movie implements ApplicationContextAware
 {
 
     private Actor actor;
@@ -37,4 +37,7 @@ public class Movie
     }
 
 
+    public void setApplicationContext(ApplicationContext applicationContext) throws BeansException {
+        Actor actor= (Actor) applicationContext.getBean("actor1");
+    }
 }

@@ -8,13 +8,47 @@
 
 
     <bean id="actor1" class="com.stackroute.domain.Actor" >
-    <property name="name" value="uday"></property>
-    <property name="gender" value="male"></property>
-    <property name="age" value="22"></property>
+
+        <constructor-arg name="name" value="uday"></constructor-arg>
+        <constructor-arg name="gender" value="male"></constructor-arg>
+        <constructor-arg name="age" value="22"></constructor-arg>
     </bean>
 
-    <bean id="movie" class="com.stackroute.domain.Movie">
+    <bean id="actor2" class="com.stackroute.domain.Actor" >
+        <constructor-arg name="name" value="radhika"></constructor-arg>
+        <constructor-arg name="gender" value="female"></constructor-arg>
+        <constructor-arg name="age" value="32"></constructor-arg>
+    </bean>
+
+
+    <bean id="actor3" class="com.stackroute.domain.Actor">
+    <constructor-arg type="String" value="amrit"></constructor-arg>
+    <constructor-arg type="String" value="something"></constructor-arg>
+        <constructor-arg type="int" value="79"></constructor-arg>
+    </bean>
+
+
+
+    <bean id="movie1" class="com.stackroute.domain.Movie">
         <property name="actor" ref="actor1"></property>
     </bean>
+
+    <bean id="movie2" class="com.stackroute.domain.Movie">
+        <property name="actor" ref="actor2"></property>
+    </bean>
+
+    <bean id="movie3" class="com.stackroute.domain.Movie">
+        <property name="actor" ref="actor3"></property>
+    </bean>
+
+
+    <bean name="movieA,movieB" class="com.stackroute.domain.Movie" autowire="byType">
+
+        <property name="actor" ref="actor3"></property>
+    </bean>
+
+
+
+
 
 </beans>
